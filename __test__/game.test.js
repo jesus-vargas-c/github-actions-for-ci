@@ -101,5 +101,6 @@ describe('Game', () => {
       }
       expect(game.hasWinner()).toBe(true)
     })
+    
   })
 })
