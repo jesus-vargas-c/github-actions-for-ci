@@ -6,7 +6,7 @@ name: Node.js CI
 on: [push]
        
   build:
-
+    # Install node dependencies
     runs-on: ubuntu-latest
 
     steps:
@@ -21,7 +21,7 @@ on: [push]
           path: public/
 
   test:
-    
+    needs: build
     runs-on: ubuntu-latest
     
     strategy:
@@ -31,6 +31,10 @@ on: [push]
     
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/download-artifact@main
+      with:
+        name: webpack artifacts
+        path: public
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
