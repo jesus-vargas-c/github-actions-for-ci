@@ -4,11 +4,7 @@
 name: Node.js CI
 
 on: [push]
-  
-      - uses: actions/upload-artifact@master
-        with:
-          name: webpack artifacts
-          path: public/
+       
   build:
 
     runs-on: ubuntu-latest
